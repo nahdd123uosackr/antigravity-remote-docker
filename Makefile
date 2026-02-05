@@ -43,7 +43,7 @@ down: ## Stop and remove the container using docker-compose
 
 run: build ## Build and run the container
 	@echo "$(GREEN)Starting container...$(NC)"
-	docker-compose up -d --build
+	docker-compose up -d
 	@echo "$(GREEN)✓ Container started!$(NC)"
 	@echo "Access at: http://localhost:6080"
 
