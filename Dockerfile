@@ -3,7 +3,7 @@
 # A GPU-accelerated container for running Google Antigravity remotely via noVNC
 # =============================================================================
 
-FROM nvidia/cuda:12.3.1-runtime-debian11
+FROM nvidia/cuda:12.3.1-runtime-ubuntu22.04
 
 LABEL maintainer="raphl"
 LABEL description="Google Antigravity with noVNC remote access and GPU support"
@@ -85,23 +85,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # =============================================================================
-# Install Google Chrome (amd64) or Chromium (arm64)
+# Install Google Chrome
 # =============================================================================
-RUN ARCH=$(dpkg --print-architecture) && \
-    if [ "$ARCH" = "amd64" ]; then \
-        curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-chrome.gpg && \
-        echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list && \
-        apt-get update && \
-        apt-get install -y google-chrome-stable && \
-        rm -rf /var/lib/apt/lists/*; \
-    elif [ "$ARCH" = "arm64" ]; then \
-        apt-get update && \
-        apt-get install -y chromium chromium-driver && \
-        rm -rf /var/lib/apt/lists/*; \
-    else \
-        echo "Unsupported architecture: $ARCH. Only amd64 and arm64 are supported." && \
-        exit 1; \
-    fi
+RUN curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-chrome.gpg \
+    && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list \
+    && apt-get update \
+    && apt-get install -y google-chrome-stable \
+    && rm -rf /var/lib/apt/lists/*
 
 # =============================================================================
 # Locale Configuration
