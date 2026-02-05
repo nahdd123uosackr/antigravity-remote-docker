@@ -12,6 +12,25 @@ A high-performance, GPU-accelerated lightweight Linux desktop environment design
 *   **Persistent**: User workspace and configurations persist across container restarts.
 *   **Resource Efficient**: Includes idle monitoring to optimize resource usage when inactive.
 
+## Quick Start
+
+```bash
+# Clone and enter the repository
+git clone https://github.com/yourusername/antigravity-remote-docker.git
+cd antigravity-remote-docker
+
+# Configure environment
+cp .env.example .env
+
+# Build and run (choose one method)
+./build.sh              # Option 1: Use build script
+make build-run          # Option 2: Use Makefile
+docker-compose up -d --build  # Option 3: Use docker-compose
+
+# Access the desktop
+# Open browser: http://localhost:6080
+```
+
 ## Prerequisites
 
 Before running this container, ensure your host system verifies the following requirements:
@@ -36,9 +55,26 @@ Before running this container, ensure your host system verifies the following re
     *Edit `.env` and set a secure `VNC_PASSWORD`.*
 
 3.  **Build and Run**
+    
+    Choose one of the following methods:
+    
+    **Method 1: Using the build script (Recommended)**
+    ```bash
+    ./build.sh
+    docker-compose up -d
+    ```
+    
+    **Method 2: Using Makefile**
+    ```bash
+    make build-run
+    ```
+    
+    **Method 3: Using docker-compose directly**
     ```bash
     docker-compose up -d --build
     ```
+    
+    For detailed build instructions, see [BUILD.md](BUILD.md).
 
 ## Usage
 
@@ -52,6 +88,30 @@ Access the desktop directly from your browser. This method supports auto-login a
 For better performance or specific keyboard shortcuts, use a standalone VNC client (e.g., RealVNC, TightVNC).
 *   **Address**: `localhost:5901`
 *   **Password**: The value set in `VNC_PASSWORD` (default: `antigravity`)
+
+### Management Commands
+
+Using the Makefile (recommended):
+```bash
+make help          # Show all available commands
+make build         # Build the Docker image
+make run           # Build and start the container
+make stop          # Stop the container
+make restart       # Restart the container
+make logs          # View container logs
+make shell         # Open a shell in the container
+make clean         # Remove container and image
+make status        # Show container status
+```
+
+Using Docker Compose:
+```bash
+docker-compose up -d        # Start container
+docker-compose down         # Stop and remove container
+docker-compose logs -f      # View logs
+docker-compose restart      # Restart container
+docker-compose ps           # Show status
+```
 
 ## Configuration
 
