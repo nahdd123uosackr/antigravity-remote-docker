@@ -3,7 +3,7 @@
 # A GPU-accelerated container for running Google Antigravity remotely via noVNC
 # =============================================================================
 
-FROM nvidia/cuda:12.3.1-runtime-ubuntu22.04
+FROM nvidia/cuda:12.3.1-runtime-debian11
 
 LABEL maintainer="raphl"
 LABEL description="Google Antigravity with noVNC remote access and GPU support"
@@ -96,7 +96,7 @@ RUN ARCH=$(dpkg --print-architecture) && \
         rm -rf /var/lib/apt/lists/*; \
     elif [ "$ARCH" = "arm64" ]; then \
         apt-get update && \
-        apt-get install -y chromium && \
+        apt-get install -y chromium chromium-driver && \
         rm -rf /var/lib/apt/lists/*; \
     else \
         echo "Unsupported architecture: $ARCH. Only amd64 and arm64 are supported." && \
