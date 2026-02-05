@@ -44,7 +44,7 @@ docker build -t antigravity-remote:latest .
 ## 빌드 요구사항 (Build Requirements)
 
 ### 필수 사항:
-- Docker 20.10 이상
+- Docker 20.10 이상 (최신 안정 버전 권장)
 - 인터넷 연결 (외부 패키지 다운로드를 위해)
 - 최소 10GB의 디스크 공간
 - 빌드 시간: 약 10-20분 (인터넷 속도에 따라 다름)

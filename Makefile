@@ -92,5 +92,5 @@ dev-logs: ## Follow logs in real-time
 	docker-compose logs -f antigravity
 
 # Quick commands
-build-run: build run ## Build and run in one command
-rebuild: clean build run ## Clean, build, and run in one command
+build-run: build up ## Build and run in one command
+rebuild: clean build up ## Clean, build, and run in one command
