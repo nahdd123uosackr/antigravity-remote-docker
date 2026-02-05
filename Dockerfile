@@ -94,10 +94,13 @@ RUN ARCH=$(dpkg --print-architecture) && \
         apt-get update && \
         apt-get install -y google-chrome-stable && \
         rm -rf /var/lib/apt/lists/*; \
-    else \
+    elif [ "$ARCH" = "arm64" ]; then \
         apt-get update && \
-        apt-get install -y chromium-browser && \
+        apt-get install -y chromium && \
         rm -rf /var/lib/apt/lists/*; \
+    else \
+        echo "Unsupported architecture: $ARCH. Only amd64 and arm64 are supported." && \
+        exit 1; \
     fi
 
 # =============================================================================
