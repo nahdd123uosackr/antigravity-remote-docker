@@ -91,6 +91,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # Window management (for auto-maximize)
     wmctrl \
     xdotool \
+    fonts-nanum \
+    language-pack-ko \
     && rm -rf /var/lib/apt/lists/*
 
 # =============================================================================
@@ -104,10 +106,10 @@ RUN apt-get update \
 # =============================================================================
 # Locale Configuration
 # =============================================================================
-RUN locale-gen en_US.UTF-8
-ENV LANG=en_US.UTF-8 \
-    LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8
+RUN locale-gen ko_KR.UTF-8
+ENV LANG=ko_KR.UTF-8 \
+    LANGUAGE=ko_KR:ko \
+    LC_ALL=ko_KR.UTF-8
 
 # =============================================================================
 # Install noVNC and websockify
