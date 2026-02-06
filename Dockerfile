@@ -71,7 +71,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     fcitx5-frontend-qt5 \
     im-config \
     fonts-noto-cjk \
-    && im-config -n fcitx5 \
     # noVNC dependencies
     python3 \
     python3-pip \
@@ -118,6 +117,8 @@ RUN locale-gen ko_KR.UTF-8
 ENV LANG=ko_KR.UTF-8 \
     LANGUAGE=ko_KR:ko \
     LC_ALL=ko_KR.UTF-8
+
+RUN im-config -n fcitx5
 
 # =============================================================================
 # Install noVNC and websockify
