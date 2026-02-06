@@ -71,6 +71,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     fcitx5-frontend-qt5 \
     im-config \
     fonts-noto-cjk \
+    && im-config -n fcitx5 \
     # noVNC dependencies
     python3 \
     python3-pip \
