@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Fcitx5
+Exec=fcitx5 -d
+StartupNotify=false
+Terminal=false

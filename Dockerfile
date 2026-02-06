@@ -18,6 +18,11 @@ ENV DEBIAN_FRONTEND=noninteractive \
     DISPLAY_WIDTH=1920 \
     DISPLAY_HEIGHT=1080 \
     DISPLAY_DEPTH=24 \
+    # Input Method settings
+    GTK_IM_MODULE=fcitx \
+    QT_IM_MODULE=fcitx \
+    XMODIFIERS=@im=fcitx \
+    DefaultIMModule=fcitx \
     # VNC settings
     VNC_PORT=5901 \
     NOVNC_PORT=6080 \
@@ -58,6 +63,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     fonts-noto \
     gtk2-engines-pixbuf \
     adwaita-icon-theme \
+    # Input Method
+    fcitx5 \
+    fcitx5-hangul \
+    fonts-noto-cjk \
     # noVNC dependencies
     python3 \
     python3-pip \
@@ -144,6 +153,9 @@ RUN mkdir -p /home/${USER}/.vnc /home/${USER}/.config \
 COPY --chown=${USER}:${USER} config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY --chown=${USER}:${USER} scripts/ /opt/scripts/
 RUN chmod +x /opt/scripts/*.sh
+
+COPY --chown=${USER}:${USER} config/fcitx5 /home/${USER}/.config/fcitx5
+COPY --chown=${USER}:${USER} config/autostart /home/${USER}/.config/autostart
 
 # =============================================================================
 # Configure Auto-Updates for Antigravity
