@@ -66,6 +66,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # Input Method
     fcitx5 \
     fcitx5-hangul \
+    fcitx5-frontend-gtk2 \
+    fcitx5-frontend-gtk3 \
+    fcitx5-frontend-qt5 \
+    im-config \
     fonts-noto-cjk \
     # noVNC dependencies
     python3 \
