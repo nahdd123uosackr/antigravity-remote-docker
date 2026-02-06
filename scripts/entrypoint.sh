@@ -43,6 +43,13 @@ export XDG_RUNTIME_DIR="/tmp/runtime-$USER"
 mkdir -p "$XDG_RUNTIME_DIR"
 chmod 700 "$XDG_RUNTIME_DIR"
 
+# Set up Input Method (fcitx5)
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export DefaultIMModule=fcitx
+fcitx5 -d &
+
 # Start XFCE4 desktop
 # Antigravity is auto-launched by supervisor after desktop is ready
 exec startxfce4
