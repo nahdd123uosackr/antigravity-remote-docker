@@ -63,6 +63,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     fonts-noto \
     gtk2-engines-pixbuf \
     adwaita-icon-theme \
+    gnome-icon-theme \
+    hicolor-icon-theme \
+    shared-mime-info \
     # Input Method
     fcitx5 \
     fcitx5-hangul \
