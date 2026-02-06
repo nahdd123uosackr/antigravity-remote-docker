@@ -96,6 +96,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wmctrl \
     xdotool \
     fonts-nanum \
+    fcitx5-config-qt \
+    zenity \
     language-pack-ko \
     && rm -rf /var/lib/apt/lists/*
 
