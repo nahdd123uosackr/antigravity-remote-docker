@@ -1,21 +1,22 @@
 [Hotkey]
-# 트리거 키를 반복해서 누를 때 열거하기
+# Enumerate when press trigger key repeatedly
 EnumerateWithTriggerKeys=True
-# 첫 번째 입력기와 현재 입력기 사이의 임시 전환
-AltTriggerKeys=
-# 입력기 전환
-EnumerateForwardKeys=
-# 입력기 역순으로 전환
-EnumerateBackwardKeys=
-# 열거하는 동안 첫 번째 입력기 건너뛰기
+# Skip first input method while enumerating
 EnumerateSkipFirst=False
-# Time limit in milliseconds for triggering modifier key shortcuts
-ModifierOnlyKeyTimeout=250
 
 [Hotkey/TriggerKeys]
-0=Hangul
+0=Shift+space
 1=Zenkaku_Hankaku
-2=Shift+space
+2=Hangul
+
+[Hotkey/AltTriggerKeys]
+0=Shift_L
+
+[Hotkey/EnumerateForwardKeys]
+0=Control+Shift_L
+
+[Hotkey/EnumerateBackwardKeys]
+0=Control+Shift_R
 
 [Hotkey/EnumerateGroupForwardKeys]
 0=Super+space
@@ -45,27 +46,25 @@ ModifierOnlyKeyTimeout=250
 0=Control+Alt+P
 
 [Behavior]
-# 기본적으로 활성화
+# Active By Default
 ActiveByDefault=False
-# Reset state on Focus In
-resetStateWhenFocusIn=No
-# 입력 상태 공유
+# Share Input State
 ShareInputState=No
-# 응용프로그램에서 사전편집 표시
+# Show preedit in application
 PreeditEnabledByDefault=True
-# 입력기 변경시 입력기 정보 표시
+# Show Input Method Information when switch input method
 ShowInputMethodInformation=True
-# 포커스를 변경할 때 입력기 정보 표시
+# Show Input Method Information when changing focus
 showInputMethodInformationWhenFocusIn=False
-# 간결한 입력기 정보 표시
+# Show compact input method information
 CompactInputMethodInformation=True
-# 첫 번째 입력기 정보 표시
+# Show first input method information
 ShowFirstInputMethodInformation=True
-# 페이지 크기 기본값
+# Default page size
 DefaultPageSize=5
-# Xkb 옵션 재정의
+# Override Xkb Option
 OverrideXkbOption=False
-# 사용자 지정 Xkb 옵션
+# Custom Xkb Option
 CustomXkbOption=
 # Force Enabled Addons
 EnabledAddons=
@@ -73,10 +72,4 @@ EnabledAddons=
 DisabledAddons=
 # Preload input method to be used by default
 PreloadInputMethod=True
-# Allow input method in the password field
-AllowInputMethodForPassword=False
-# Show preedit text when typing password
-ShowPreeditForPassword=False
-# Interval of saving user data in minutes
-AutoSavePeriod=30
 

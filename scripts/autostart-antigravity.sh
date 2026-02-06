@@ -10,6 +10,10 @@ sleep 3
 
 # Launch Antigravity maximized using wmctrl or xdotool
 # First, start Antigravity
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+
 antigravity &
 
 # Wait for window to appear
