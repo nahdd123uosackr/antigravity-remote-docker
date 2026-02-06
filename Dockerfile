@@ -99,8 +99,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install Google Chrome
 # =============================================================================
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    chromium-browser \
+    && apt-get install -y --no-install-recommends software-properties-common \
+    && add-apt-repository ppa:savoury1/ffmpeg4 \
+    && add-apt-repository ppa:savoury1/chromium \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends chromium-browser \
     && rm -rf /var/lib/apt/lists/*
 
 # =============================================================================
